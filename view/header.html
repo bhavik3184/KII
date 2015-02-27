@@ -1,0 +1,59 @@
+<nav class="navbar navbar-default container-fluid" ng-controller="headerController">
+    <ul class="nav navbar-nav">
+        <li>
+            <img style="padding:5px 15px;" alt="Brand" src="/images/BrandKrish.png">
+        </li>
+        <li>
+            <h4 style="color:brown;padding:5px 15px;">KRISH INDIA INTERNATIONAL</h4>
+        </li>
+        <li ng-repeat="menu in menus">
+            <a href={{menu.link}} class={{menu.cls}} data-toggle="dropdown" role="button" aria-expanded="false">
+                        {{menu.name}}
+                        <span ng-if="menu.name=='Products'" class="caret"></span>
+                    </a>
+
+            <ul ng-if="menu.name=='Products'" class="dropdown-menu" role="menu">
+                <li ng-repeat="menu in productmenus">
+                    <a href={{menu.link}}>
+                                {{menu.name}}
+                            </a>
+                    <hr>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+<!--<div class="row">-->
+<!--    <table width="100% " ng-controller="headerController">-->
+<!--        <tr>-->
+<!--            <td width="10% " class="text-justify">-->
+<!--                <img src="/images/KrishLogo.png " text="Krish India Intl. " />-->
+<!--                </a>-->
+<!--            </td>-->
+<!--<td colspan={{menus.length}}>-->
+<!--            <td>-->
+<!--                <h1 class="text-danger text-justify ">-->
+<!--                KRISH INDIA INTERNATIONAL-->
+<!--            </h1>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--                <div class="btn-group" role="group">-->
+<!--                    <a ng-repeat="menu in iconmenu" href={{menu.link}} class="btn btn-default {{menu.icon}}">-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>&nbsp;</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--<td>&nbsp;</td>-->
+<!--            <td colspan="3" align="center">-->
+<!--                <a ng-repeat="menu in menus" href={{menu.link}} class={{menu.cls}} data-wipe={{menu.name}}>-->
+<!--                    {{menu.name}}-->
+<!--                </a>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</div>-->

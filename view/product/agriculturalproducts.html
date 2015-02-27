@@ -1,0 +1,49 @@
+<div class="navbar-center">
+    <div class="col-md-3">
+        <input type="text" class="form-control" placeholder="Search">
+    </div>
+</div>
+<br>
+<br>
+<div class="panel panel-default" ng-controller="agriController">
+    <div class="panel-heading">
+        {{agri.headtext}}
+    </div>
+    <div class="panel-body">
+        <a href={{agri.ppl}} ng-repeat="product in agri.products" ng-click="showDesc()">
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <img src={{product.image}} />
+                    </div>
+                    <div class="panel-footer">
+                        {{product.name}}
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<script type="text/ng-template" id="firstDialogId">
+    <div class="ngdialog-message table-responsive">
+        <h3>Product Description</h3>
+        <table class="table table-bordered">
+            <tr>
+                <td>Product ID :</td>
+                <td>Some sample ID</td>
+            </tr>
+            <tr>
+                <td>Product Name :</td>
+                <td>Mini Tractor</td>
+            </tr>
+            <tr>
+                <td>Model :</td>
+                <td>Mahindra Tractor</td>
+            </tr>
+        </table>
+    </div>
+    <div class="ngdialog-buttons">
+        <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="">Send Inquery</button>
+    </div>
+</script>

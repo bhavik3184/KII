@@ -1,0 +1,33 @@
+<form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate ng-controller="ContactFrmCtrl">
+    <div ng-show="submission" class={{submissioncss}} role="alert" ng-bind="submissionMessage"></div>
+    <br>
+    <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+        <label>Name*</label>
+        <input type="text" name="name" class="form-control" ng-model="user.name" required placeholder="Smith" ng-minlength="3" ng-maxlength="15">
+        <small ng-show="userForm.name.$error.required && !userForm.name.$pristine" class="help-block">Name is required.</small>
+        <small ng-show="userForm.name.$error.minlength || userForm.name.$error.maxlength" class="help-block">Name should be of 3-15 characters.</small>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+        <label>Email*</label>
+        <input type="email" name="email" class="form-control" ng-model="user.email" placeholder="email@domain.com">
+        <small ng-show="userForm.email.$error.required && !userForm.email.$pristine" class="help-block">Email is required.</small>
+        <small ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</small>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : userForm.telephone.$invalid && !userForm.telephone.$pristine }">
+        <label>Telephone*</label>
+        <input type="text" name="telephone" class="form-control" ng-model="user.telephone" ng-minlength="7" ng-maxlength="10" placeholder="1234567 or 9876543210" required ng-pattern="/[0-9]{7,10}/">
+        <small ng-show="userForm.telephone.$error.required && !userForm.telephone.$pristine" class="help-block">Telephone is required.</small>
+        <small ng-show="userForm.telephone.$error.pattern || userForm.telephone.$error.minlength || userForm.telephone.$error.maxlength" class="help-block">Invalid Telephone.</small>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : userForm.description.$invalid && !userForm.description.$pristine }">
+        <label>Description</label>
+        <textarea name="description" rows="3" class="form-control" ng-model="user.description" ng-minlength="600" ng-maxlength="700" placeholder="This is in reference to..(Minimum 600 characters)" />
+        <small>Remaining Character(s) : {{600-userForm.description.$viewValue.length}}</small>
+        <small ng-show="userForm.description.$error.minlength || userForm.description.$error.maxlength" class="help-block">Describe your query in 600-700 character.</small>
+    </div>
+    {{userForm.$valid}}
+    <button type="submit" class="btn btn-primary" value="submit">Submit</button>
+</form>

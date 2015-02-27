@@ -1,0 +1,12 @@
+<div ng-controller="agriMachController">
+    <div class="col-md-3" ng-repeat="image in images">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>{{image.headtext}}</strong>
+            </div>
+            <div class="panel-body">
+                <img src={{image.imageurl}} />
+            </div>
+        </div>
+    </div>
+</div>
