@@ -1,5 +1,6 @@
 (function() {
-    var app = angular.module("kiiWeb", ["ngRoute", "ngDialog"]);
+    // var app = angular.module("kiiWeb", ["ngRoute", "ngDialog"]);
+    var app = angular.module("kiiWeb", ["ngRoute"]);
 
     app.config(function($routeProvider) {
         $routeProvider

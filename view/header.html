@@ -8,16 +8,15 @@
         </li>
         <li ng-repeat="menu in menus">
             <a href={{menu.link}} class={{menu.cls}} data-toggle="dropdown" role="button" aria-expanded="false">
-                        {{menu.name}}
-                        <span ng-if="menu.name=='Products'" class="caret"></span>
-                    </a>
-
+                {{menu.name}}
+                <span ng-if="menu.name=='Products'" class="caret"></span>
+            </a>
             <ul ng-if="menu.name=='Products'" class="dropdown-menu" role="menu">
                 <li ng-repeat="menu in productmenus">
+                    <br>
                     <a href={{menu.link}}>
-                                {{menu.name}}
-                            </a>
-                    <hr>
+                        {{menu.name}}
+                    </a>
                 </li>
             </ul>
         </li>
